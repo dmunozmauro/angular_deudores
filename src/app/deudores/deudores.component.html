@@ -1,0 +1,19 @@
+<p>Deudores</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Deudor</th>
+            <th scope="col">ID Compras</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let deudor of deudores">
+            <td>{{deudor.id}}</td>
+            <td>{{deudor.deudor}}</td>
+            <td>{{deudor.id_compra}}</td>
+        </tr>
+    </tbody>
+</table>
+

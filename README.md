@@ -29,5 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## INSTALACIONES
 
-* npm install --save-dev @angular-devkit/build-angular
+* npm i --save-dev @angular-devkit/build-angular
+* npm i bootstrap
+* npm i jquery bootstrap --save
 
