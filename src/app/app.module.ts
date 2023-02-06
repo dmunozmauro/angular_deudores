@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './menu/menu.component';
+import { ComprasComponent } from './compras/compras.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     DeudoresComponent,
     NuevoDeudorComponent,
+    MenuComponent,
+    ComprasComponent,
   ],
   imports: [
     BrowserModule,

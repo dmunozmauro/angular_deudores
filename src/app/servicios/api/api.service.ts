@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 import { Deudor } from "../../models/deudor.interface"
+import { Compras } from "../../models/compras.interface"
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,11 @@ export class ApiService {
   obtenerDeudores(): Observable<Deudor[]> {
     let direccion = this.url + "deudores/consultar-deudores"
     return this.http.get<Deudor[]>(direccion)
+  }
+  
+  obtenerCompras(): Observable<Compras[]> {
+    let direccion = this.url + "compras/consultar-compras"
+    return this.http.get<Compras[]>(direccion)
   }
 
   insertarDeudores(deudor: Deudor): Observable<Deudor> {

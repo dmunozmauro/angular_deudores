@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../servicios/api/api.service'
 import { Deudor } from '../models/deudor.interface'
 import { Router } from '@angular/router';
