@@ -21,6 +21,19 @@ export class ApiService {
   insertarDeudores(deudor: Deudor): Observable<Deudor> {
     let direccion = this.url + "deudores/insertar-deudores";
     return this.http.post<Deudor>(direccion, deudor)
+  }
 
+
+  eliminarDeudor(id: Number): Observable<Deudor> {
+    let direccion = this.url + "deudores/eliminar-deudores";
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      mode: 'no-cors',
+      body: { "id": id }
+    }
+
+    return this.http.delete<Deudor>(direccion, options)
   }
 }

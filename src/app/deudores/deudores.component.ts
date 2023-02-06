@@ -3,6 +3,8 @@ import { ApiService } from '../servicios/api/api.service'
 import { Deudor } from '../models/deudor.interface'
 import { Router } from '@angular/router';
 
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-deudores',
@@ -23,6 +25,35 @@ export class DeudoresComponent {
 
   nuevoDeudor(): void {
     this.router.navigateByUrl('/nuevo-deudor')
+  }
+
+  eliminarDeudor(id: Number): void {
+    Swal.fire({
+      title: '¿Eliminar deudor?',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: `Cancelar`,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Cargando',
+          allowOutsideClick: false
+        });
+
+        Swal.showLoading();
+
+        this.api.eliminarDeudor(id).subscribe((res: any) => {
+          Swal.fire({
+            icon: res.code == 2 ? 'error' : 'success',
+            title: res.message,
+            allowOutsideClick: false
+          })
+
+          this.ngOnInit()
+        })
+      }
+    })
   }
 
 }

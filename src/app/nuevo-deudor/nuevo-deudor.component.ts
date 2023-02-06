@@ -22,7 +22,8 @@ export class NuevoDeudorComponent {
   enviar() {
 
     Swal.fire({
-      title: 'Cargando'
+      title: 'Cargando',
+      allowOutsideClick: false
     });
     
     Swal.showLoading();
@@ -32,7 +33,8 @@ export class NuevoDeudorComponent {
       this.router.navigateByUrl('/deudores')
       Swal.fire({
         icon: res.code == 2 ? 'error' : 'success',
-        title: res.message
+        title: res.message,
+        allowOutsideClick: false
       })
     })
   }
