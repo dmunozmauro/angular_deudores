@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ComprasComponent } from './compras/compras.component';
 import { DeudoresComponent } from './deudores/deudores.component';
 import { MenuComponent } from './menu/menu.component';
+import { NuevaCompraComponent } from './nueva-compra/nueva-compra.component';
 import { NuevoDeudorComponent } from './nuevo-deudor/nuevo-deudor.component';
 
 const routes: Routes = [
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'deudores', component: DeudoresComponent },
   { path: 'compras', component: ComprasComponent },
-  { path: 'nuevo-deudor', component: NuevoDeudorComponent }
+  { path: 'nuevo-deudor', component: NuevoDeudorComponent },
+  { path: 'nueva-compra', component: NuevaCompraComponent }
 ];
 
 @NgModule({

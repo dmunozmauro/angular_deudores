@@ -20,4 +20,8 @@ export class ComprasComponent {
     })
   }
 
+  nuevaCompra(): void {
+    this.router.navigateByUrl('/nueva-compra')
+  }
+
 }

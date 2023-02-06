@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-12">
+        <h3>Nueva compra</h3>
+    </div>
+
+    <div class="col-12">
+        <form #formNuevaCompra="ngForm" (ngSubmit)="enviar()">
+            <div class="mb-3">
+                <label for="producto" class="form-label">Producto</label>
+                <input type="text" class="form-control" name="producto" placeholder="Escribir producto"
+                    #producto="ngModel" [(ngModel)]="nueva_compra.producto" required>
+
+                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            </div>
+            
+            <div class="mb-3">
+                <label for="valor" class="form-label">Valor</label>
+                <input type="number" class="form-control" name="valor" placeholder="Escribir valor"
+                    #valor="ngModel" [(ngModel)]="nueva_compra.valor" required>
+
+                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            </div>
+
+            <button type="submit" class="btn btn-primary mr-3">Guardar</button>
+        </form>
+    </div>
+</div>

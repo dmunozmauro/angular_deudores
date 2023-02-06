@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
-import { Deudor } from '../models/deudor.interface';
-import { ApiService } from '../servicios/api/api.service';
 import { Router } from '@angular/router';
+import { Compras } from '../models/compras.interface';
+import { ApiService } from '../servicios/api/api.service';
 
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-nuevo-deudor',
-  templateUrl: './nuevo-deudor.component.html',
-  styleUrls: ['./nuevo-deudor.component.css']
+  selector: 'app-nueva-compra',
+  templateUrl: './nueva-compra.component.html',
+  styleUrls: ['./nueva-compra.component.css']
 })
-export class NuevoDeudorComponent {
+export class NuevaCompraComponent {
 
-  nuevo_deudor: Deudor;
+  nueva_compra: Compras;
   invalido: Boolean = false;
 
   constructor(private api: ApiService, private router: Router) {
-    this.nuevo_deudor = new Deudor(0, "", 0)
+    this.nueva_compra = new Compras(0, "", 0, 0);
   }
 
   enviar() {
-    if (this.nuevo_deudor.deudor == "") {
+    if (this.nueva_compra.producto == "" || this.nueva_compra.valor == null || this.nueva_compra.valor == 0) {
       this.invalido = true;
     } else {
       this.invalido = false;
@@ -32,9 +32,9 @@ export class NuevoDeudorComponent {
 
       Swal.showLoading();
 
-      this.api.insertarDeudores(this.nuevo_deudor).subscribe((res: any) => {
+      this.api.insertarCompra(this.nueva_compra).subscribe((res: any) => {
 
-        this.router.navigateByUrl('/deudores')
+        this.router.navigateByUrl('/compras')
         Swal.fire({
           icon: res.code == 2 ? 'error' : 'success',
           title: res.message,
@@ -47,5 +47,4 @@ export class NuevoDeudorComponent {
   volver() {
     this.router.navigateByUrl('/deudores')
   }
-
 }

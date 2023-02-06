@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
 import { ComprasComponent } from './compras/compras.component';
+import { NuevaCompraComponent } from './nueva-compra/nueva-compra.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ComprasComponent } from './compras/compras.component';
     NuevoDeudorComponent,
     MenuComponent,
     ComprasComponent,
+    NuevaCompraComponent,
   ],
   imports: [
     BrowserModule,

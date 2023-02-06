@@ -28,6 +28,11 @@ export class ApiService {
     let direccion = this.url + "deudores/insertar-deudores";
     return this.http.post<Deudor>(direccion, deudor)
   }
+  
+  insertarCompra(compra: Compras): Observable<Compras> {
+    let direccion = this.url + "compras/insertar-compras";
+    return this.http.post<Compras>(direccion, compra)
+  }
 
 
   eliminarDeudor(id: Number): Observable<Deudor> {

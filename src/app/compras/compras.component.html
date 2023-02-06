@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col-6">
-            <!-- <button type="button" class="btn btn-primary" (click)="nuevoDeudor()">Nuevo Deudor</button> -->
+            <button type="button" class="btn btn-primary" (click)="nuevaCompra()">Nueva compra</button>
         </div>
     </div>
 </div>
@@ -25,7 +25,7 @@
                 <tr *ngFor="let compra of compras">
                     <td>{{compra.id}}</td>
                     <td>{{compra.producto}}</td>
-                    <td>{{compra.valor}}</td>
+                    <td>{{compra.valor.toString() | currency:'CLP'}}</td>
                     <td>{{compra.id_cuotas}}</td>
                 </tr>
             </tbody>
