@@ -1,5 +1,7 @@
-export interface Deudor {
-    id: Number,
-    deudor: string,
-    id_compra: Number
+export class Deudor {
+    constructor(
+        public id: Number,
+        public deudor: string,
+        public id_compra: Number
+    ) { }
 }

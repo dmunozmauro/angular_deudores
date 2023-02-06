@@ -14,9 +14,13 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   obtenerDeudores(): Observable<Deudor[]> {
-
     let direccion = this.url + "deudores/consultar-deudores"
     return this.http.get<Deudor[]>(direccion)
+  }
+
+  insertarDeudores(deudor: Deudor): Observable<Deudor> {
+    let direccion = this.url + "deudores/insertar-deudores";
+    return this.http.post<Deudor>(direccion, deudor)
 
   }
 }
