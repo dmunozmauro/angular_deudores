@@ -16,11 +16,17 @@ export class NuevaCompraComponent {
   invalido: Boolean = false;
 
   constructor(private api: ApiService, private router: Router) {
-    this.nueva_compra = new Compras(0, "", 0, 0);
+    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0);
   }
 
   enviar() {
-    if (this.nueva_compra.producto == "" || this.nueva_compra.valor == null || this.nueva_compra.valor == 0) {
+    if (this.nueva_compra.producto == "" ||
+      this.nueva_compra.valor == null ||
+      this.nueva_compra.valor == 0 ||
+      this.nueva_compra.cantidad_cuotas == null ||
+      this.nueva_compra.cantidad_cuotas == 0 ||
+      this.nueva_compra.cuotas_pagadas == null ||
+      this.nueva_compra.cuotas_pagadas == 0) {
       this.invalido = true;
     } else {
       this.invalido = false;

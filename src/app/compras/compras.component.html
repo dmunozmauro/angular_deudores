@@ -14,19 +14,19 @@
     <div class="col-12">
         <table class="table" *ngIf="compras.length > 0; else no_compras">
             <thead>
-                <tr>
-                    <th scope="col">ID</th>
+                <tr class="text-center">
                     <th scope="col">Producto</th>
                     <th scope="col">Valor</th>
-                    <th scope="col">Cuotas</th>
+                    <th scope="col">Cantidad cuotas</th>
+                    <th scope="col">Cuotas pagadas</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compra of compras">
-                    <td>{{compra.id}}</td>
+                <tr *ngFor="let compra of compras" class="text-center">
                     <td>{{compra.producto}}</td>
                     <td>{{compra.valor.toString() | currency:'CLP'}}</td>
-                    <td>{{compra.id_cuotas}}</td>
+                    <td>{{compra.cantidad_cuotas}}</td>
+                    <td>{{compra.cuotas_pagadas}}</td>
                 </tr>
             </tbody>
         </table>

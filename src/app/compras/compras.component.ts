@@ -16,6 +16,8 @@ export class ComprasComponent {
 
   ngOnInit(): void {
     this.api.obtenerCompras().subscribe((data: any) => {
+
+      console.log(data)
       this.compras = data.data
     })
   }
