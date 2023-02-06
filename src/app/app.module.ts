@@ -9,6 +9,7 @@ import { NuevoDeudorComponent } from './nuevo-deudor/nuevo-deudor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 
 
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatFormFieldModule,
     FormsModule,
   ],
   providers: [],

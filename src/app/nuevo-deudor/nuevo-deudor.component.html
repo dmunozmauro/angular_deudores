@@ -7,10 +7,14 @@
         <form #formNuevoDeudor="ngForm" (ngSubmit)="enviar()">
             <div class="mb-3">
                 <label for="nombre_deudor" class="form-label">Nombre deudor</label>
-                <input type="text" class="form-control" name="nombre_deudor" placeholder="nombre deudor"
-                    #nombre_deudor="ngModel" [(ngModel)]="nuevo_deudor.deudor">
+                <input type="text" class="form-control" name="nombre_deudor" placeholder="Escribir nombre"
+                    #nombre_deudor="ngModel" [(ngModel)]="nuevo_deudor.deudor" required>
+
+                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+
+            <button type="submit" class="btn btn-primary mr-3">Guardar</button>
         </form>
     </div>
 </div>
