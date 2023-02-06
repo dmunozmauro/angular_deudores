@@ -1,19 +1,32 @@
-<p>Deudores</p>
+<div class="row">
+    <div class="col-12">
+        <h3>Deudores</h3>
+    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Deudor</th>
-            <th scope="col">ID Compras</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let deudor of deudores">
-            <td>{{deudor.id}}</td>
-            <td>{{deudor.deudor}}</td>
-            <td>{{deudor.id_compra}}</td>
-        </tr>
-    </tbody>
-</table>
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-primary" (click)="nuevoDeudor()">Nuevo Deudor</button>
+        </div>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Deudor</th>
+                    <th scope="col">ID Compras</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let deudor of deudores">
+                    <td>{{deudor.id}}</td>
+                    <td>{{deudor.deudor}}</td>
+                    <td>{{deudor.id_compra}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../servicios/api/api.service'
 import { Deudor } from '../models/deudor.interface'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-deudores',
@@ -9,7 +11,7 @@ import { Deudor } from '../models/deudor.interface'
 })
 export class DeudoresComponent {
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   deudores: Deudor[] = []
 
@@ -17,6 +19,10 @@ export class DeudoresComponent {
     this.api.obtenerDeudores().subscribe(data => {
       this.deudores = data
     })
+  }
+
+  nuevoDeudor(): void {
+    this.router.navigateByUrl('/nuevo-deudor')
   }
 
 }
