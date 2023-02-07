@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from '../servicios/api/api.service'
 import { Deudor } from '../models/deudor.interface'
 import { Router } from '@angular/router';
-
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 
 @Component({
