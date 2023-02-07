@@ -19,17 +19,19 @@
             <thead>
                 <tr>
                     <th scope="col">Producto</th>
-                    <th scope="col">Valor</th>
+                    <th scope="col">Valor producto</th>
                     <th scope="col">Cantidad cuotas</th>
                     <th scope="col">Cuotas pagadas</th>
+                    <th scope="col">Valor cuota</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let compra of compras">
                     <td>{{compra.producto}}</td>
-                    <td>{{compra.valor.toString() | currency:'CLP'}}</td>
+                    <td>$ {{compra.valor.toString() | number}}</td>
                     <td>{{compra.cantidad_cuotas}}</td>
                     <td>{{compra.cuotas_pagadas}}</td>
+                    <td>$ {{compra.valor_cuota.toString() | number}}</td>
                 </tr>
             </tbody>
         </table>

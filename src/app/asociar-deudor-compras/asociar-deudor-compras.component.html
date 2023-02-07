@@ -14,8 +14,8 @@
                 <select class="form-select">
                     <option>Seleccionar</option>
                     <option *ngFor="let compra of compras_no_asociadas" [value]="compra.id_compra">
-                        Producto:{{compra.producto}} -
-                        Valor:{{compra.valor.toString() | currency:'CLP'}}</option>
+                        Producto: {{compra.producto}} -
+                        Valor: {{compra.valor.toString() | currency:'CLP'}}</option>
                 </select>
 
                 <mat-error *ngIf="invalido">Campo obligatorio</mat-error>

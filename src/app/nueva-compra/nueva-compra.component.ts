@@ -16,7 +16,7 @@ export class NuevaCompraComponent {
   invalido: Boolean = false;
 
   constructor(private api: ApiService, private router: Router) {
-    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0);
+    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, 0);
   }
 
   enviar() {

@@ -16,7 +16,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="valor" class="form-label">Valor</label>
+                <label for="valor" class="form-label">Valor producto</label>
                 <input type="number" class="form-control" name="valor" placeholder="Escribir valor" #valor="ngModel"
                     [(ngModel)]="nueva_compra.valor" required>
 
@@ -35,6 +35,14 @@
                 <label for="cuotas_pagadas" class="form-label">Cuotas pagadas</label>
                 <input type="number" class="form-control" name="cuotas_pagadas" placeholder="Escribir cuotas_pagadas"
                     #cuotas_pagadas="ngModel" [(ngModel)]="nueva_compra.cuotas_pagadas" required>
+
+                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            </div>
+            
+            <div class="mb-3">
+                <label for="valor_cuota" class="form-label">Valor cuota</label>
+                <input type="number" class="form-control" name="valor_cuota" placeholder="Escribir valor_cuota"
+                    #valor_cuota="ngModel" [(ngModel)]="nueva_compra.valor_cuota" required>
 
                 <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
             </div>

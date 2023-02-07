@@ -9,8 +9,9 @@
         <p>Deudor: <strong>{{deudor}}</strong></p>
     </div>
 
-    <div class="col-12">
+    <div class="col-12" *ngIf="compras_realizadas.length > 0; else no_compras">
         <p>Compras</p>
+
         <table class="table text-center">
             <thead>
                 <tr>
@@ -30,6 +31,12 @@
             </tbody>
         </table>
     </div>
+
+    <ng-template #no_compras>
+        <div class="col-12 text-center">
+            <strong>No tiene compras</strong>
+        </div>
+    </ng-template>
 </div>
 
 <div class="row mt-3">
