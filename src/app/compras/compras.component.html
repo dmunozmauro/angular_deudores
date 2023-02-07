@@ -7,14 +7,17 @@
         <div class="col-6">
             <button type="button" class="btn btn-primary" (click)="nuevaCompra()">Nueva compra</button>
         </div>
+        <div class="col-6">
+            <button class="btn btn-secondary" (click)="volver()">Volver</button>
+        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-12">
-        <table class="table" *ngIf="compras.length > 0; else no_compras">
+        <table class="table center" *ngIf="compras.length > 0; else no_compras">
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th scope="col">Producto</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Cantidad cuotas</th>
@@ -22,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compra of compras" class="text-center">
+                <tr *ngFor="let compra of compras">
                     <td>{{compra.producto}}</td>
                     <td>{{compra.valor.toString() | currency:'CLP'}}</td>
                     <td>{{compra.cantidad_cuotas}}</td>

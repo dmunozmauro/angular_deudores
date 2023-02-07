@@ -2,7 +2,9 @@
     <div class="col-12">
         <h3>Nuevo deudor</h3>
     </div>
+</div>
 
+<div class="row">
     <div class="col-12">
         <form #formNuevoDeudor="ngForm" (ngSubmit)="enviar()">
             <div class="mb-3">
@@ -16,5 +18,11 @@
 
             <button type="submit" class="btn btn-primary mr-3">Guardar</button>
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <button type="submit" class="btn btn-secondary" (click)="volver()">Volver</button>
     </div>
 </div>

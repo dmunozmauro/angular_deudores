@@ -51,6 +51,6 @@ export class NuevaCompraComponent {
   }
 
   volver() {
-    this.router.navigate(['/deudores'])
+    this.router.navigate(['/compras'])
   }
 }

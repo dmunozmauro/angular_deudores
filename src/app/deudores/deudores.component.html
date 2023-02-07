@@ -7,14 +7,17 @@
         <div class="col-6">
             <button type="button" class="btn btn-primary" (click)="nuevoDeudor()">Nuevo Deudor</button>
         </div>
+        <div class="col-6">
+            <button class="btn btn-secondary" (click)="volver()">Volver</button>
+        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-12">
-        <table class="table" *ngIf="deudores.length > 0; else no_deudores">
+        <table class="table text-center" *ngIf="deudores.length > 0; else no_deudores">
             <thead>
-                <tr class="text-center">
+                <tr>
                     <th scope="col">Deudor</th>
                     <th scope="col">Compras realizadas</th>
                     <th scope="col">Asociar compras</th>
@@ -22,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let deudor of deudores" class="text-center">
+                <tr *ngFor="let deudor of deudores">
                     <td>{{deudor.deudor}}</td>
                     <td><mat-icon (click)="verCompras(deudor.id)">remove_red_eye</mat-icon></td>
                     <td><mat-icon (click)="asociarCompra(deudor.id)">edit</mat-icon></td>

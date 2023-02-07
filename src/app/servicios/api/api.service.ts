@@ -28,6 +28,11 @@ export class ApiService {
     let direccion = this.url + "compras/compras-no-asociadas"
     return this.http.get<Compras[]>(direccion)
   }
+  
+  obtenerComprasDeudor(id: Number): Observable<Compras[]> {
+    let direccion = this.url + "compras/compras-realizadas-deudor/" + id
+    return this.http.get<Compras[]>(direccion)
+  }
 
   insertarDeudores(deudor: Deudor): Observable<Deudor> {
     let direccion = this.url + "deudores/insertar-deudores";
@@ -43,7 +48,6 @@ export class ApiService {
     let direccion = this.url + "deudores/actualizar-relacion-deudor-compra";
     return this.http.put<[]>(direccion, compra)
   }
-
 
   eliminarDeudor(id: Number): Observable<Deudor> {
     let direccion = this.url + "deudores/eliminar-deudores";

@@ -26,4 +26,8 @@ export class ComprasComponent {
     this.router.navigate(['/nueva-compra'])
   }
 
+  volver() {
+    this.router.navigate(['/menu'])
+  }
+
 }

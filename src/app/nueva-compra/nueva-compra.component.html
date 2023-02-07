@@ -2,7 +2,9 @@
     <div class="col-12">
         <h3>Nueva compra</h3>
     </div>
+</div>
 
+<div class="row">
     <div class="col-12">
         <form #formNuevaCompra="ngForm" (ngSubmit)="enviar()">
             <div class="mb-3">
@@ -23,21 +25,27 @@
 
             <div class="mb-3">
                 <label for="cantidad_cuotas" class="form-label">Cantidad cuotas</label>
-                <input type="number" class="form-control" name="cantidad_cuotas" placeholder="Escribir cantidad_cuotas" #cantidad_cuotas="ngModel"
-                    [(ngModel)]="nueva_compra.cantidad_cuotas" required>
+                <input type="number" class="form-control" name="cantidad_cuotas" placeholder="Escribir cantidad_cuotas"
+                    #cantidad_cuotas="ngModel" [(ngModel)]="nueva_compra.cantidad_cuotas" required>
 
                 <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
             </div>
 
             <div class="mb-3">
                 <label for="cuotas_pagadas" class="form-label">Cuotas pagadas</label>
-                <input type="number" class="form-control" name="cuotas_pagadas" placeholder="Escribir cuotas_pagadas" #cuotas_pagadas="ngModel"
-                    [(ngModel)]="nueva_compra.cuotas_pagadas" required>
+                <input type="number" class="form-control" name="cuotas_pagadas" placeholder="Escribir cuotas_pagadas"
+                    #cuotas_pagadas="ngModel" [(ngModel)]="nueva_compra.cuotas_pagadas" required>
 
                 <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
             </div>
 
             <button type="submit" class="btn btn-primary mr-3">Guardar</button>
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <button type="submit" class="btn btn-secondary" (click)="volver()">Volver</button>
     </div>
 </div>

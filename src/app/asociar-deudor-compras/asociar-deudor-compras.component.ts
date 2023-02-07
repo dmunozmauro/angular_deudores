@@ -53,5 +53,9 @@ export class AsociarDeudorComprasComponent {
       })
     })
   }
+
+  volver() {
+    this.router.navigate(['/deudores'])
+  }
 }
 

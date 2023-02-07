@@ -2,7 +2,9 @@
     <div class="col-12">
         <h3>Asociar compra</h3>
     </div>
+</div>
 
+<div class="row">
     <div class="col-12">
         <form #formAsociarCompra="ngForm" (ngSubmit)="asociar()">
             <div class="mb-3">
@@ -21,5 +23,11 @@
 
             <button type="submit" class="btn btn-primary mr-3">Asociar</button>
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <button type="submit" class="btn btn-secondary" (click)="volver()">Volver</button>
     </div>
 </div>
