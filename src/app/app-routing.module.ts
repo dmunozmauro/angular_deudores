@@ -6,6 +6,7 @@ import { DeudoresComponent } from './deudores/deudores.component';
 import { MenuComponent } from './menu/menu.component';
 import { NuevaCompraComponent } from './nueva-compra/nueva-compra.component';
 import { NuevoDeudorComponent } from './nuevo-deudor/nuevo-deudor.component';
+import { VerComprasRealizadasComponent } from './ver-compras-realizadas/ver-compras-realizadas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'menu', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'compras', component: ComprasComponent },
   { path: 'nuevo-deudor', component: NuevoDeudorComponent },
   { path: 'nueva-compra', component: NuevaCompraComponent },
-  { path: 'asigna-deudor-compra/:id', component: AsociarDeudorComprasComponent }
+  { path: 'asigna-deudor-compra/:id', component: AsociarDeudorComprasComponent },
+  { path: 'compras-realizadas/:id', component: VerComprasRealizadasComponent }
 ];
 
 @NgModule({

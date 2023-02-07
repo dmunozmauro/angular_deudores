@@ -23,11 +23,15 @@ export class DeudoresComponent {
   }
 
   nuevoDeudor(): void {
-    this.router.navigateByUrl('/nuevo-deudor')
+    this.router.navigate(['/nuevo-deudor'])
   }
 
-  asociarCompra(id: any): void {
-    this.router.navigateByUrl('/asigna-deudor-compra/' + id)
+  asociarCompra(id: Number): void {
+    this.router.navigate(['/asigna-deudor-compra/', id])
+  }
+ 
+  verCompras(id: Number): void {
+    this.router.navigate(['/compras-realizadas/', id])
   }
 
   eliminarDeudor(id: Number): void {

@@ -23,7 +23,7 @@ export class ComprasComponent {
   }
 
   nuevaCompra(): void {
-    this.router.navigateByUrl('/nueva-compra')
+    this.router.navigate(['/nueva-compra'])
   }
 
 }

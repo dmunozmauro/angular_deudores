@@ -40,7 +40,7 @@ export class NuevaCompraComponent {
 
       this.api.insertarCompra(this.nueva_compra).subscribe((res: any) => {
 
-        this.router.navigateByUrl('/compras')
+        this.router.navigate(['/compras'])
         Swal.fire({
           icon: res.code == 2 ? 'error' : 'success',
           title: res.message,
@@ -51,6 +51,6 @@ export class NuevaCompraComponent {
   }
 
   volver() {
-    this.router.navigateByUrl('/deudores')
+    this.router.navigate(['/deudores'])
   }
 }

@@ -34,7 +34,7 @@ export class NuevoDeudorComponent {
 
       this.api.insertarDeudores(this.nuevo_deudor).subscribe((res: any) => {
 
-        this.router.navigateByUrl('/deudores')
+        this.router.navigate(['/deudores'])
         Swal.fire({
           icon: res.code == 2 ? 'error' : 'success',
           title: res.message,
@@ -45,7 +45,7 @@ export class NuevoDeudorComponent {
   }
 
   volver() {
-    this.router.navigateByUrl('/deudores')
+    this.router.navigate(['/deudores'])
   }
 
 }

@@ -11,10 +11,10 @@ export class MenuComponent {
   constructor(private router: Router) { }
 
   deudores() {
-    this.router.navigateByUrl('/deudores')
+    this.router.navigate(['/deudores'])
   }
 
   compras() {
-    this.router.navigateByUrl('/compras')
+    this.router.navigate(['/compras'])
   }
 }

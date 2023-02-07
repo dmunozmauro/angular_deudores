@@ -16,19 +16,17 @@
             <thead>
                 <tr class="text-center">
                     <th scope="col">Deudor</th>
-                    <th scope="col">Compras</th>
+                    <th scope="col">Compras realizadas</th>
                     <th scope="col">Asociar compras</th>
-                    <th scope="col">Eliminar</th>
+                    <th scope="col">Eliminar deudor</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let deudor of deudores" class="text-center">
                     <td>{{deudor.deudor}}</td>
-                    <td>{{deudor.id_compra}}</td>
-                    <td><button mat-fab type="button" class="btn btn-primary" (click)="asociarCompra(deudor.id)"><mat-icon>edit</mat-icon></button></td>
-                    <td>
-                        <button mat-fab type="button" class="btn btn-danger"
-                            (click)="eliminarDeudor(deudor.id)"><mat-icon>delete</mat-icon></button>
+                    <td><mat-icon (click)="verCompras(deudor.id)">remove_red_eye</mat-icon></td>
+                    <td><mat-icon (click)="asociarCompra(deudor.id)">edit</mat-icon></td>
+                    <td><mat-icon (click)="eliminarDeudor(deudor.id)">delete</mat-icon>
                     </td>
                 </tr>
             </tbody>
