@@ -18,6 +18,7 @@
         <table class="table text-center" *ngIf="deudores.length > 0; else no_deudores">
             <thead>
                 <tr>
+                    <th scope="col">N°</th>
                     <th scope="col">Deudor</th>
                     <th scope="col">Compras realizadas</th>
                     <th scope="col">Asociar compras</th>
@@ -25,7 +26,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let deudor of deudores">
+                <tr *ngFor="let deudor of deudores; let i = index">
+                    <td>{{i + 1}}</td>
                     <td>{{deudor.deudor}}</td>
                     <td><mat-icon class="icons" (click)="verCompras(deudor.id)">remove_red_eye</mat-icon></td>
                     <td><mat-icon class="icons" (click)="asociarCompra(deudor.id)">edit</mat-icon></td>
