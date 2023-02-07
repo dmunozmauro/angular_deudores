@@ -37,7 +37,7 @@
                     <td *ngIf="!compra.cuotas_pagadas">-</td>
 
                     <td *ngIf="compra.valor_cuota">$ {{compra.valor_cuota.toString() | number}}</td>
-                    <td *ngIf="!compra.valor_cuota">-</td>
+                    <td *ngIf="!compra.valor_cuota">$ {{compra.valor.toString() | number}}</td>
                 </tr>
             </tbody>
         </table>

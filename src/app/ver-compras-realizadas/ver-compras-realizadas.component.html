@@ -35,7 +35,7 @@
                     <td *ngIf="!compra.cantidad_cuotas">-</td>
 
                     <td *ngIf="compra.valor_cuota">{{compra.valor_cuota.toString() | number}}</td>
-                    <td *ngIf="!compra.valor_cuota">-</td>
+                    <td *ngIf="!compra.valor_cuota">{{compra.valor.toString() | number}}</td>
 
                     <td><mat-icon class="icons" (click)="eliminarRelacionCompraDeudor(compra.id)">delete</mat-icon></td>
                 </tr>
