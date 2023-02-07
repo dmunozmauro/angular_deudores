@@ -11,7 +11,7 @@
                 <label for="producto" class="form-label">Compras declaradas</label>
 
 
-                <select class="form-select">
+                <select class="form-select" (change)="onChange($event)">
                     <option>Seleccionar</option>
                     <option *ngFor="let compra of compras_no_asociadas" [value]="compra.id_compra">
                         Producto: {{compra.producto}} -

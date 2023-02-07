@@ -58,7 +58,7 @@ export class VerComprasRealizadasComponent {
 
         Swal.showLoading();
 
-        this.api.eliminarDeudor(id).subscribe((res: any) => {
+        this.api.eliminarCompraDeudor(id).subscribe((res: any) => {
           Swal.fire({
             icon: res.code == 2 ? 'error' : 'success',
             title: res.message,

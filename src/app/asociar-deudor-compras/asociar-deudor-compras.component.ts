@@ -38,8 +38,8 @@ export class AsociarDeudorComprasComponent {
     })
   }
 
-  onChange(e: Event) {
-    this.compra_seleccionada = e.target;
+  onChange(e: any) {
+    this.compra_seleccionada = e.target.value;
   }
 
   asociar() {
@@ -50,7 +50,7 @@ export class AsociarDeudorComprasComponent {
 
     Swal.showLoading();
 
-    this.body = { "id_deudor": this.id_deudor, "id_compra": this.compras_no_asociadas[0].id_compra };
+    this.body = { "id_deudor": this.id_deudor, "id_compra": this.compra_seleccionada };
 
     this.api.asociarCompras(this.body).subscribe((res: any) => {
       this.router.navigate(['/deudores'])
