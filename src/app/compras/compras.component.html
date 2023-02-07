@@ -29,13 +29,20 @@
                 <tr *ngFor="let compra of compras">
                     <td>{{compra.producto}}</td>
                     <td>$ {{compra.valor.toString() | number}}</td>
-                    <td>{{compra.cantidad_cuotas}}</td>
-                    <td>{{compra.cuotas_pagadas}}</td>
-                    <td>$ {{compra.valor_cuota.toString() | number}}</td>
+
+                    <td *ngIf="compra.cantidad_cuotas">{{compra.cantidad_cuotas}}</td>
+                    <td *ngIf="!compra.cantidad_cuotas">-</td>
+
+                    <td *ngIf="compra.cuotas_pagadas">{{compra.cuotas_pagadas}}</td>
+                    <td *ngIf="!compra.cuotas_pagadas">-</td>
+
+                    <td *ngIf="compra.valor_cuota">$ {{compra.valor_cuota.toString() | number}}</td>
+                    <td *ngIf="!compra.valor_cuota">-</td>
                 </tr>
             </tbody>
         </table>
 
         <ng-template #no_compras>No existen compras</ng-template>
+        <ng-template #no_cuota>-</ng-template>
     </div>
 </div>

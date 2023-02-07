@@ -7,47 +7,79 @@
 <div class="row mt-3">
     <div class="col-12">
         <form #formNuevaCompra="ngForm" (ngSubmit)="enviar()">
-            <div class="mb-3">
-                <label for="producto" class="form-label">Producto</label>
-                <input type="text" class="form-control" name="producto" placeholder="Escribir producto"
-                    #producto="ngModel" [(ngModel)]="nueva_compra.producto" required>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="producto" class="form-label">Producto</label>
+                        <input type="text" class="form-control" name="producto" placeholder="Escribir producto"
+                            #producto="ngModel" [(ngModel)]="nueva_compra.producto" required>
 
-                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+                        <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="valor" class="form-label">Valor producto</label>
+                        <input type="number" class="form-control" name="valor" placeholder="Escribir valor"
+                            #valor="ngModel" [(ngModel)]="nueva_compra.valor" required>
+
+                        <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="valor" class="form-label">Valor producto</label>
-                <input type="number" class="form-control" name="valor" placeholder="Escribir valor" #valor="ngModel"
-                    [(ngModel)]="nueva_compra.valor" required>
-
-                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3 form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
+                            name="es_servicio" #es_servicio="ngModel" [(ngModel)]="nueva_compra.es_servicio">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            ¿Cobro mensual?
+                        </label>
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="cantidad_cuotas" class="form-label">Cantidad cuotas</label>
-                <input type="number" class="form-control" name="cantidad_cuotas" placeholder="Escribir cantidad_cuotas"
-                    #cantidad_cuotas="ngModel" [(ngModel)]="nueva_compra.cantidad_cuotas" required>
 
-                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            <div class="row">
+                <div class="col-4">
+                    <div class="mb-3" *ngIf="!nueva_compra.es_servicio">
+                        <label for="cantidad_cuotas" class="form-label">Cantidad cuotas</label>
+                        <input type="number" class="form-control" name="cantidad_cuotas"
+                            placeholder="Escribir cantidad_cuotas" #cantidad_cuotas="ngModel"
+                            [(ngModel)]="nueva_compra.cantidad_cuotas" required>
+
+                        <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mb-3" *ngIf="!nueva_compra.es_servicio">
+                        <label for="cuotas_pagadas" class="form-label">Cuotas pagadas</label>
+                        <input type="number" class="form-control" name="cuotas_pagadas"
+                            placeholder="Escribir cuotas_pagadas" #cuotas_pagadas="ngModel"
+                            [(ngModel)]="nueva_compra.cuotas_pagadas" required>
+
+                        <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mb-3" *ngIf="!nueva_compra.es_servicio">
+                        <label for="valor_cuota" class="form-label">Valor cuota</label>
+                        <input type="number" class="form-control" name="valor_cuota" placeholder="Escribir valor_cuota"
+                            #valor_cuota="ngModel" [(ngModel)]="nueva_compra.valor_cuota" required>
+
+                        <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+                    </div>
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="cuotas_pagadas" class="form-label">Cuotas pagadas</label>
-                <input type="number" class="form-control" name="cuotas_pagadas" placeholder="Escribir cuotas_pagadas"
-                    #cuotas_pagadas="ngModel" [(ngModel)]="nueva_compra.cuotas_pagadas" required>
-
-                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
-            </div>
-            
-            <div class="mb-3">
-                <label for="valor_cuota" class="form-label">Valor cuota</label>
-                <input type="number" class="form-control" name="valor_cuota" placeholder="Escribir valor_cuota"
-                    #valor_cuota="ngModel" [(ngModel)]="nueva_compra.valor_cuota" required>
-
-                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary mr-3">Guardar</button>
+                </div>
             </div>
 
-            <button type="submit" class="btn btn-primary mr-3">Guardar</button>
         </form>
     </div>
 </div>

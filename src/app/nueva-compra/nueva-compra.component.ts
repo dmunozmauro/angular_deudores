@@ -16,39 +16,29 @@ export class NuevaCompraComponent {
   invalido: Boolean = false;
 
   constructor(private api: ApiService, private router: Router) {
-    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, 0);
+    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, 0, false);
   }
 
   enviar() {
-    if (this.nueva_compra.producto == "" ||
-      this.nueva_compra.valor == null ||
-      this.nueva_compra.valor == 0 ||
-      this.nueva_compra.cantidad_cuotas == null ||
-      this.nueva_compra.cantidad_cuotas == 0 ||
-      this.nueva_compra.cuotas_pagadas == null ||
-      this.nueva_compra.cuotas_pagadas == 0) {
-      this.invalido = true;
-    } else {
-      this.invalido = false;
+    console.log(this.nueva_compra)
+    Swal.fire({
+      title: 'Cargando',
+      allowOutsideClick: false
+    });
 
+    Swal.showLoading();
+
+    this.api.insertarCompra(this.nueva_compra).subscribe((res: any) => {
+
+      this.router.navigate(['/compras'])
       Swal.fire({
-        title: 'Cargando',
+        icon: res.code == 2 ? 'error' : 'success',
+        title: res.message,
         allowOutsideClick: false
-      });
-
-      Swal.showLoading();
-
-      this.api.insertarCompra(this.nueva_compra).subscribe((res: any) => {
-
-        this.router.navigate(['/compras'])
-        Swal.fire({
-          icon: res.code == 2 ? 'error' : 'success',
-          title: res.message,
-          allowOutsideClick: false
-        })
       })
-    }
+    })
   }
+
 
   volver() {
     this.router.navigate(['/compras'])
