@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'compras', component: ComprasComponent },
   { path: 'nuevo-deudor', component: NuevoDeudorComponent },
   { path: 'nueva-compra', component: NuevaCompraComponent },
+  { path: 'editar-compra/:id', component: NuevaCompraComponent },
   { path: 'asigna-deudor-compra/:id', component: AsociarDeudorComprasComponent },
   { path: 'compras-realizadas/:id', component: VerComprasRealizadasComponent }
 ];

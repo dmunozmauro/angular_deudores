@@ -25,6 +25,7 @@
                     <th scope="col">Cantidad cuotas</th>
                     <th scope="col">Cuotas pagadas</th>
                     <th scope="col">Valor cuota</th>
+                    <th scope="col">Actualizar compra</th>
                     <th scope="col">Eliminar compra</th>
                 </tr>
             </thead>
@@ -42,6 +43,7 @@
 
                     <td>{{compra.valor_cuota.toString() | number}}</td>
 
+                    <td><mat-icon class="icons" (click)="actualizarCompraDeudor(compra.id)">edit</mat-icon></td>
                     <td><mat-icon class="icons" (click)="eliminarRelacionCompraDeudor(compra.id)">delete</mat-icon></td>
                 </tr>
             </tbody>

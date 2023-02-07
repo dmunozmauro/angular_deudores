@@ -26,7 +26,7 @@ export class VerComprasRealizadasComponent {
 
     this.activatedRoute.params.subscribe((params: any) => {
       this.api.obtenerComprasDeudor(params.id).subscribe((data: any) => {
-        this.compras_realizadas = data.data.compras;
+        this.compras_realizadas = data?.data?.compras;
         this.deudor = data.data.deudor;
 
         Swal.close()
@@ -65,5 +65,9 @@ export class VerComprasRealizadasComponent {
         })
       }
     })
+  }
+ 
+  actualizarCompraDeudor(id: Number) {
+    this.router.navigate(['/editar-compra', id])
   }
 }

@@ -28,9 +28,14 @@ export class ApiService {
     let direccion = this.url + "compras/compras-no-asociadas"
     return this.http.get<Compras[]>(direccion)
   }
-  
+
   obtenerComprasDeudor(id: Number): Observable<Compras[]> {
     let direccion = this.url + "compras/compras-realizadas-deudor/" + id
+    return this.http.get<Compras[]>(direccion)
+  }
+
+  obtenerCompraById(id: Number): Observable<Compras[]> {
+    let direccion = this.url + "compras/consulta-compra/" + id
     return this.http.get<Compras[]>(direccion)
   }
 
@@ -42,6 +47,11 @@ export class ApiService {
   insertarCompra(compra: Compras): Observable<Compras> {
     let direccion = this.url + "compras/insertar-compras";
     return this.http.post<Compras>(direccion, compra)
+  }
+  
+  editarCompra(compra: Compras): Observable<Compras> {
+    let direccion = this.url + "compras/editar-compras";
+    return this.http.put<Compras>(direccion, compra)
   }
 
   asociarCompras(compra: []): Observable<[]> {
@@ -61,7 +71,7 @@ export class ApiService {
 
     return this.http.delete<Deudor>(direccion, options)
   }
-  
+
   eliminarCompraDeudor(id: Number): Observable<Compras> {
     let direccion = this.url + "compras/eliminar-compra-deudor";
     let options = {
