@@ -27,6 +27,10 @@ export class DeudoresComponent {
     this.router.navigateByUrl('/nuevo-deudor')
   }
 
+  asociarCompra(id: any): void {
+    this.router.navigateByUrl('/asigna-deudor-compra/' + id)
+  }
+
   eliminarDeudor(id: Number): void {
     Swal.fire({
       title: '¿Eliminar deudor?',

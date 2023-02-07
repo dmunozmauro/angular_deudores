@@ -15,7 +15,6 @@
         <table class="table" *ngIf="deudores.length > 0; else no_deudores">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">ID</th>
                     <th scope="col">Deudor</th>
                     <th scope="col">Compras</th>
                     <th scope="col">Asociar compras</th>
@@ -24,10 +23,9 @@
             </thead>
             <tbody>
                 <tr *ngFor="let deudor of deudores" class="text-center">
-                    <td>{{deudor.id}}</td>
                     <td>{{deudor.deudor}}</td>
                     <td>{{deudor.id_compra}}</td>
-                    <td><button mat-fab type="button" class="btn btn-primary"><mat-icon>edit</mat-icon></button></td>
+                    <td><button mat-fab type="button" class="btn btn-primary" (click)="asociarCompra(deudor.id)"><mat-icon>edit</mat-icon></button></td>
                     <td>
                         <button mat-fab type="button" class="btn btn-danger"
                             (click)="eliminarDeudor(deudor.id)"><mat-icon>delete</mat-icon></button>

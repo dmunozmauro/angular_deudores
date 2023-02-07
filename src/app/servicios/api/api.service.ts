@@ -18,9 +18,14 @@ export class ApiService {
     let direccion = this.url + "deudores/consultar-deudores"
     return this.http.get<Deudor[]>(direccion)
   }
-  
+
   obtenerCompras(): Observable<Compras[]> {
     let direccion = this.url + "compras/consultar-compras"
+    return this.http.get<Compras[]>(direccion)
+  }
+
+  obtenerComprasNoAsociadas(): Observable<Compras[]> {
+    let direccion = this.url + "compras/compras-no-asociadas"
     return this.http.get<Compras[]>(direccion)
   }
 
@@ -28,10 +33,15 @@ export class ApiService {
     let direccion = this.url + "deudores/insertar-deudores";
     return this.http.post<Deudor>(direccion, deudor)
   }
-  
+
   insertarCompra(compra: Compras): Observable<Compras> {
     let direccion = this.url + "compras/insertar-compras";
     return this.http.post<Compras>(direccion, compra)
+  }
+
+  asociarCompras(compra: []): Observable<[]> {
+    let direccion = this.url + "deudores/actualizar-relacion-deudor-compra";
+    return this.http.put<[]>(direccion, compra)
   }
 
 

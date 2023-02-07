@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-12">
+        <h3>Asociar compra</h3>
+    </div>
+
+    <div class="col-12">
+        <form #formAsociarCompra="ngForm" (ngSubmit)="asociar()">
+            <div class="mb-3">
+                <label for="producto" class="form-label">Compras declaradas</label>
+
+
+                <select class="form-select" *ngCha>
+                    <option>Seleccionar</option>
+                    <option *ngFor="let compra of compras_no_asociadas" [value]="compra.id_compra">
+                        Producto:{{compra.producto}} -
+                        Valor:{{compra.valor.toString() | currency:'CLP'}}</option>
+                </select>
+
+                <mat-error *ngIf="invalido">Campo obligatorio</mat-error>
+            </div>
+
+            <button type="submit" class="btn btn-primary mr-3">Asociar</button>
+        </form>
+    </div>
+</div>
