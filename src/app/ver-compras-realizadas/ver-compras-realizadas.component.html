@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-12">
-        <p>Suma deuda total: <strong>{{deudor}}</strong></p>
+        <p>Suma total cuotas: <strong>{{suma_total_cuotas.toString() | number}}</strong></p>
     </div>
 
     <div class="col-12" *ngIf="compras_realizadas.length > 0; else no_compras">

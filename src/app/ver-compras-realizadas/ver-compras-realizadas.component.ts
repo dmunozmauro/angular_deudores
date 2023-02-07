@@ -15,6 +15,7 @@ export class VerComprasRealizadasComponent {
 
   compras_realizadas: Compras[] = [];
   deudor: string = "";
+  suma_total_cuotas: Number = 0;
 
   ngOnInit() {
     Swal.fire({
@@ -29,6 +30,9 @@ export class VerComprasRealizadasComponent {
         this.compras_realizadas = data?.data?.compras;
         this.deudor = data.data.deudor;
 
+        this.compras_realizadas.map((c: any) => {
+          this.suma_total_cuotas = Number(this.suma_total_cuotas) + Number.parseInt(c.valor_cuota)
+        })
         Swal.close()
       })
     });
@@ -66,7 +70,7 @@ export class VerComprasRealizadasComponent {
       }
     })
   }
- 
+
   actualizarCompraDeudor(id: Number) {
     this.router.navigate(['/editar-compra', id])
   }
