@@ -9,8 +9,12 @@
         <p>Deudor: <strong>{{deudor}}</strong></p>
     </div>
 
+    <div class="col-12">
+        <p>Suma deuda total: <strong>{{deudor}}</strong></p>
+    </div>
+
     <div class="col-12" *ngIf="compras_realizadas.length > 0; else no_compras">
-        <p>Compras</p>
+        <p>Detalle compras</p>
 
         <table class="table text-center">
             <thead>
@@ -36,8 +40,7 @@
                     <td *ngIf="compra.cantidad_cuotas">{{compra.cuotas_pagadas}}</td>
                     <td *ngIf="!compra.cantidad_cuotas">-</td>
 
-                    <td *ngIf="compra.valor_cuota">{{compra.valor_cuota.toString() | number}}</td>
-                    <td *ngIf="!compra.valor_cuota">{{compra.valor.toString() | number}}</td>
+                    <td>{{compra.valor_cuota.toString() | number}}</td>
 
                     <td><mat-icon class="icons" (click)="eliminarRelacionCompraDeudor(compra.id)">delete</mat-icon></td>
                 </tr>
