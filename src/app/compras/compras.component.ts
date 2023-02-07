@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Compras } from '../models/compras.interface';
 import { ApiService } from '../servicios/api/api.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-compras',
   templateUrl: './compras.component.html',
@@ -15,11 +17,18 @@ export class ComprasComponent {
   compras: Compras[] = []
 
   ngOnInit(): void {
-    this.api.obtenerCompras().subscribe((data: any) => {
+    Swal.fire({
+      title: 'Cargando',
+      allowOutsideClick: false
+    });
 
-      console.log(data)
+    Swal.showLoading();
+
+    this.api.obtenerCompras().subscribe((data: any) => {
       this.compras = data.data
-    })
+
+      Swal.close();
+    });
   }
 
   nuevaCompra(): void {

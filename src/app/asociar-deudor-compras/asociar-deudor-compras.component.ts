@@ -20,13 +20,21 @@ export class AsociarDeudorComprasComponent {
   constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    Swal.fire({
+      title: 'Cargando',
+      allowOutsideClick: false
+    });
+
+    Swal.showLoading();
 
     this.activatedRoute.params.subscribe((params: any) => {
-      this.id_deudor = params.id
+      this.id_deudor = params.id;
     });
 
     this.api.obtenerComprasNoAsociadas().subscribe((data: any) => {
-      this.compras_no_asociadas = data.data
+      this.compras_no_asociadas = data.data;
+
+      Swal.close();
     })
   }
 

@@ -17,8 +17,17 @@ export class DeudoresComponent {
   deudores: Deudor[] = []
 
   ngOnInit(): void {
+    Swal.fire({
+      title: 'Cargando',
+      allowOutsideClick: false
+    });
+
+    Swal.showLoading();
+
     this.api.obtenerDeudores().subscribe(data => {
       this.deudores = data
+
+      Swal.close()
     })
   }
 
@@ -29,7 +38,7 @@ export class DeudoresComponent {
   asociarCompra(id: Number): void {
     this.router.navigate(['/asigna-deudor-compra/', id])
   }
- 
+
   verCompras(id: Number): void {
     this.router.navigate(['/compras-realizadas/', id])
   }
