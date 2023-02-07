@@ -37,4 +37,33 @@ export class VerComprasRealizadasComponent {
   volver() {
     this.router.navigate(['/deudores'])
   }
+
+  eliminarRelacionCompraDeudor(id: Number) {
+    Swal.fire({
+      title: '¿Eliminar compra de deudor?',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: `Cancelar`,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Cargando',
+          allowOutsideClick: false
+        });
+
+        Swal.showLoading();
+
+        this.api.eliminarCompraDeudor(id).subscribe((res: any) => {
+          Swal.fire({
+            icon: res.code == 2 ? 'error' : 'success',
+            title: res.message,
+            allowOutsideClick: false
+          })
+
+          this.ngOnInit()
+        })
+      }
+    })
+  }
 }
