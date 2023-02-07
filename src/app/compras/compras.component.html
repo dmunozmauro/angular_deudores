@@ -3,19 +3,19 @@
         <h3>Compras</h3>
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
         <div class="col-6">
             <button type="button" class="btn btn-primary" (click)="nuevaCompra()">Nueva compra</button>
         </div>
-        <div class="col-6">
+        <div class="col-6 text-end">
             <button class="btn btn-secondary" (click)="volver()">Volver</button>
         </div>
     </div>
 </div>
 
-<div class="row">
+<div class="row mt-3">
     <div class="col-12">
-        <table class="table center" *ngIf="compras.length > 0; else no_compras">
+        <table class="table text-center" *ngIf="compras.length > 0; else no_compras">
             <thead>
                 <tr>
                     <th scope="col">Producto</th>
