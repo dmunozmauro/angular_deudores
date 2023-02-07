@@ -18,6 +18,7 @@
         <table class="table text-center" *ngIf="compras.length > 0; else no_compras">
             <thead>
                 <tr>
+                    <th scope="col">N°</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Valor producto</th>
                     <th scope="col">Cantidad cuotas</th>
@@ -26,7 +27,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let compra of compras">
+                <tr *ngFor="let compra of compras; let i = index">
+                    <td>{{i + 1}}</td>
                     <td>{{compra.producto}}</td>
                     <td>$ {{compra.valor.toString() | number}}</td>
 
