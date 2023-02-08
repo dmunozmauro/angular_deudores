@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Compras } from '../models/compras.interface';
 import { ApiService } from '../servicios/api/api.service';
-import Swal from 'sweetalert2';
+
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-ver-compras-realizadas',
