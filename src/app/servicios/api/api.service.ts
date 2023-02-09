@@ -71,6 +71,19 @@ export class ApiService {
 
     return this.http.delete<Deudor>(direccion, options)
   }
+  
+  eliminarCompra(id: Number): Observable<Compras> {
+    let direccion = this.url + "compras/eliminar-compras";
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      mode: 'no-cors',
+      body: { "id": id }
+    }
+
+    return this.http.delete<Compras>(direccion, options)
+  }
 
   eliminarCompraDeudor(id: Number): Observable<Compras> {
     let direccion = this.url + "compras/eliminar-compra-deudor";

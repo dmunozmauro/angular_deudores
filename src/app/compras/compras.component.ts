@@ -43,6 +43,46 @@ export class ComprasComponent {
     this.router.navigate(['/nueva-compra'])
   }
 
+  eliminarCompra(id: Number) {
+    Swal.fire({
+      title: '¿Eliminar compra?',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: `Cancelar`,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Cargando',
+          allowOutsideClick: false
+        });
+
+        Swal.showLoading();
+
+        this.api.eliminarCompra(id).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              icon: res.code == 2 ? 'error' : 'success',
+              title: res.message,
+              allowOutsideClick: false
+            })
+
+            if (res.code != 2) {
+              this.ngOnInit()
+            }
+          },
+          error: (e) => {
+            Swal.fire({
+              icon: 'error',
+              title: e.error.message,
+              allowOutsideClick: false
+            })
+          }
+        })
+      }
+    })
+  }
+
   volver() {
     this.router.navigate(['/menu'])
   }
