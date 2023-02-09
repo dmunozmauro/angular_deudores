@@ -76,7 +76,9 @@ export class DeudoresComponent {
               allowOutsideClick: false
             })
 
-            this.ngOnInit()
+            if (res.code != 2) {
+              this.ngOnInit()
+            }
           },
           error: (e) => {
             Swal.fire({
