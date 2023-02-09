@@ -25,6 +25,7 @@
                     <th scope="col">Cantidad cuotas</th>
                     <th scope="col">Cuotas pagadas</th>
                     <th scope="col">Valor cuota</th>
+                    <th scope="col">Última fecha de pago</th>
                     <th scope="col">Actualizar compra</th>
                     <th scope="col">Eliminar compra</th>
                 </tr>
@@ -42,6 +43,9 @@
                     <td *ngIf="!compra.cantidad_cuotas">-</td>
 
                     <td>{{compra.valor_cuota.toString() | number}}</td>
+
+                    <td *ngIf="compra.ultima_fecha_pago">{{compra.ultima_fecha_pago}}</td>
+                    <td *ngIf="!compra.ultima_fecha_pago">Sin pago registrado</td>
 
                     <td><mat-icon class="icons" (click)="actualizarCompraDeudor(compra.id)">edit</mat-icon></td>
                     <td><mat-icon class="icons" (click)="eliminarRelacionCompraDeudor(compra.id)">delete</mat-icon></td>

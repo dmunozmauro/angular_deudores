@@ -18,7 +18,7 @@ export class NuevaCompraComponent {
   invalido: Boolean = false;
 
   constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, false);
+    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, false, "");
   }
 
   ngOnInit() {
@@ -72,7 +72,7 @@ export class NuevaCompraComponent {
 
   editarCompra() {
     if (this.nueva_compra.es_servicio) {
-      this.nueva_compra = new Compras(this.nueva_compra.id, this.nueva_compra.producto, this.nueva_compra.valor, 0, 0, 0, this.nueva_compra.es_servicio);
+      this.nueva_compra = new Compras(this.nueva_compra.id, this.nueva_compra.producto, this.nueva_compra.valor, 0, 0, 0, this.nueva_compra.es_servicio, "");
     }
 
     Swal.fire({
@@ -96,6 +96,55 @@ export class NuevaCompraComponent {
           icon: 'error',
           title: e.error.message,
           allowOutsideClick: false
+        })
+      }
+    })
+  }
+
+  actualizarFechaPago(id: Number) {
+
+    Swal.fire({
+      title: '¿Actualizar fecha de pago al día de hoy?',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: `Cancelar`,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Cargando',
+          allowOutsideClick: false
+        });
+
+        Swal.showLoading();
+
+        let hoy = new Date();
+        hoy.setUTCHours(0, 0, 0, 0);
+
+        let body = {
+          "id": id,
+          "ultima_fecha_pago": hoy.toISOString()
+        }
+
+        this.api.actualizarFechaPago(body).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              icon: res.code == 2 ? 'error' : 'success',
+              title: res.message,
+              allowOutsideClick: false
+            })
+
+            if (res.code != 2) {
+              this.volver()
+            }
+          },
+          error: (e) => {
+            Swal.fire({
+              icon: 'error',
+              title: e.error.message,
+              allowOutsideClick: false
+            })
+          }
         })
       }
     })

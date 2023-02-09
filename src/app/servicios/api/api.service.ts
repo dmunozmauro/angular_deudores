@@ -58,6 +58,11 @@ export class ApiService {
     let direccion = this.url + "deudores/actualizar-relacion-deudor-compra";
     return this.http.put<[]>(direccion, compra)
   }
+  
+  actualizarFechaPago(body: any): Observable<[]> {
+    let direccion = this.url + "compras/actualizar-fecha-pago";
+    return this.http.put<[]>(direccion, body)
+  }
 
   eliminarDeudor(id: Number): Observable<Deudor> {
     let direccion = this.url + "deudores/eliminar-deudores";
