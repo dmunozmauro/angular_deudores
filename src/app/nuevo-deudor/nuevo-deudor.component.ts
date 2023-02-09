@@ -32,14 +32,23 @@ export class NuevoDeudorComponent {
 
       Swal.showLoading();
 
-      this.api.insertarDeudores(this.nuevo_deudor).subscribe((res: any) => {
+      this.api.insertarDeudores(this.nuevo_deudor).subscribe({
+        next: (res: any) => {
 
-        this.router.navigate(['/deudores'])
-        Swal.fire({
-          icon: res.code == 2 ? 'error' : 'success',
-          title: res.message,
-          allowOutsideClick: false
-        })
+          this.router.navigate(['/deudores'])
+          Swal.fire({
+            icon: res.code == 2 ? 'error' : 'success',
+            title: res.message,
+            allowOutsideClick: false
+          })
+        },
+        error: (e) => {
+          Swal.fire({
+            icon: 'error',
+            title: e.error.message,
+            allowOutsideClick: false
+          })
+        }
       })
     }
   }

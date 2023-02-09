@@ -24,10 +24,18 @@ export class ComprasComponent {
 
     Swal.showLoading();
 
-    this.api.obtenerCompras().subscribe((data: any) => {
-      this.compras = data.data
-
-      Swal.close();
+    this.api.obtenerCompras().subscribe({
+      next: (data: any) => {
+        this.compras = data.data
+        Swal.close();
+      },
+      error: (e) => {
+        Swal.fire({
+          icon: 'error',
+          title: e.error.message,
+          allowOutsideClick: false
+        })
+      }
     });
   }
 

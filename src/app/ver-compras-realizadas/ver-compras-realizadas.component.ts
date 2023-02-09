@@ -27,14 +27,23 @@ export class VerComprasRealizadasComponent {
     Swal.showLoading();
 
     this.activatedRoute.params.subscribe((params: any) => {
-      this.api.obtenerComprasDeudor(params.id).subscribe((data: any) => {
-        this.compras_realizadas = data?.data?.compras;
-        this.deudor = data.data.deudor;
+      this.api.obtenerComprasDeudor(params.id).subscribe({
+        next: (data: any) => {
+          this.compras_realizadas = data?.data?.compras;
+          this.deudor = data.data.deudor;
 
-        this.compras_realizadas.map((c: any) => {
-          this.suma_total_cuotas = Number(this.suma_total_cuotas) + Number.parseInt(c.valor_cuota)
-        })
-        Swal.close()
+          this.compras_realizadas.map((c: any) => {
+            this.suma_total_cuotas = Number(this.suma_total_cuotas) + Number.parseInt(c.valor_cuota)
+          })
+          Swal.close()
+        },
+        error: (e) => {
+          Swal.fire({
+            icon: 'error',
+            title: e.error.message,
+            allowOutsideClick: false
+          })
+        }
       })
     });
   }
@@ -59,14 +68,23 @@ export class VerComprasRealizadasComponent {
 
         Swal.showLoading();
 
-        this.api.eliminarCompraDeudor(id).subscribe((res: any) => {
-          Swal.fire({
-            icon: res.code == 2 ? 'error' : 'success',
-            title: res.message,
-            allowOutsideClick: false
-          })
+        this.api.eliminarCompraDeudor(id).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              icon: res.code == 2 ? 'error' : 'success',
+              title: res.message,
+              allowOutsideClick: false
+            })
 
-          this.ngOnInit()
+            this.ngOnInit()
+          },
+          error: (e) => {
+            Swal.fire({
+              icon: 'error',
+              title: e.error.message,
+              allowOutsideClick: false
+            })
+          }
         })
       }
     })

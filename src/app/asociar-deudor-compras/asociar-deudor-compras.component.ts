@@ -31,10 +31,18 @@ export class AsociarDeudorComprasComponent {
       this.id_deudor = params.id;
     });
 
-    this.api.obtenerComprasNoAsociadas().subscribe((data: any) => {
-      this.compras_no_asociadas = data.data;
-
-      Swal.close();
+    this.api.obtenerComprasNoAsociadas().subscribe({
+      next: (data: any) => {
+        this.compras_no_asociadas = data.data;
+        Swal.close();
+      },
+      error: (e) => {
+        Swal.fire({
+          icon: 'error',
+          title: e.error.message,
+          allowOutsideClick: false
+        })
+      }
     })
   }
 
@@ -52,13 +60,22 @@ export class AsociarDeudorComprasComponent {
 
     this.body = { "id_deudor": this.id_deudor, "id_compra": this.compra_seleccionada };
 
-    this.api.asociarCompras(this.body).subscribe((res: any) => {
-      this.router.navigate(['/deudores'])
-      Swal.fire({
-        icon: res.code == 2 ? 'error' : 'success',
-        title: res.message,
-        allowOutsideClick: false
-      })
+    this.api.asociarCompras(this.body).subscribe({
+      next: (res: any) => {
+        this.router.navigate(['/deudores'])
+        Swal.fire({
+          icon: res.code == 2 ? 'error' : 'success',
+          title: res.message,
+          allowOutsideClick: false
+        })
+      },
+      error: (e) => {
+        Swal.fire({
+          icon: 'error',
+          title: e.error.message,
+          allowOutsideClick: false
+        })
+      }
     })
   }
 

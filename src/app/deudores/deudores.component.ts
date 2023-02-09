@@ -25,10 +25,18 @@ export class DeudoresComponent {
 
     Swal.showLoading();
 
-    this.api.obtenerDeudores().subscribe(data => {
-      this.deudores = data
-
-      Swal.close()
+    this.api.obtenerDeudores().subscribe({
+      next: data => {
+        this.deudores = data
+        Swal.close()
+      },
+      error: (e) => {
+        Swal.fire({
+          icon: 'error',
+          title: e.error.message,
+          allowOutsideClick: false
+        })
+      }
     })
   }
 
@@ -60,14 +68,23 @@ export class DeudoresComponent {
 
         Swal.showLoading();
 
-        this.api.eliminarDeudor(id).subscribe((res: any) => {
-          Swal.fire({
-            icon: res.code == 2 ? 'error' : 'success',
-            title: res.message,
-            allowOutsideClick: false
-          })
+        this.api.eliminarDeudor(id).subscribe({
+          next: (res: any) => {
+            Swal.fire({
+              icon: res.code == 2 ? 'error' : 'success',
+              title: res.message,
+              allowOutsideClick: false
+            })
 
-          this.ngOnInit()
+            this.ngOnInit()
+          },
+          error: (e) => {
+            Swal.fire({
+              icon: 'error',
+              title: e.error.message,
+              allowOutsideClick: false
+            })
+          }
         })
       }
     })

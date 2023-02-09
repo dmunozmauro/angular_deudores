@@ -26,8 +26,17 @@ export class NuevaCompraComponent {
       if (params?.id) {
         this.id_compra_editada = params.id;
 
-        this.api.obtenerCompraById(this.id_compra_editada).subscribe((data: any) => {
-          this.nueva_compra = data.data[0]
+        this.api.obtenerCompraById(this.id_compra_editada).subscribe({
+          next: (data: any) => {
+            this.nueva_compra = data.data[0]
+          },
+          error: (e) => {
+            Swal.fire({
+              icon: 'error',
+              title: e.error.message,
+              allowOutsideClick: false
+            })
+          }
         })
       }
     })
@@ -41,14 +50,23 @@ export class NuevaCompraComponent {
 
     Swal.showLoading();
 
-    this.api.insertarCompra(this.nueva_compra).subscribe((res: any) => {
+    this.api.insertarCompra(this.nueva_compra).subscribe({
+      next: (res: any) => {
 
-      this.router.navigate(['/compras'])
-      Swal.fire({
-        icon: res.code == 2 ? 'error' : 'success',
-        title: res.message,
-        allowOutsideClick: false
-      })
+        this.router.navigate(['/compras'])
+        Swal.fire({
+          icon: res.code == 2 ? 'error' : 'success',
+          title: res.message,
+          allowOutsideClick: false
+        })
+      },
+      error: (e) => {
+        Swal.fire({
+          icon: 'error',
+          title: e.error.message,
+          allowOutsideClick: false
+        })
+      }
     })
   }
 
@@ -60,13 +78,22 @@ export class NuevaCompraComponent {
 
     Swal.showLoading();
 
-    this.api.editarCompra(this.nueva_compra).subscribe((res: any) => {
-      this.router.navigate(['/compras-realizadas/', res.deudor])
-      Swal.fire({
-        icon: res.code == 2 ? 'error' : 'success',
-        title: res.message,
-        allowOutsideClick: false
-      })
+    this.api.editarCompra(this.nueva_compra).subscribe({
+      next: (res: any) => {
+        this.router.navigate(['/compras-realizadas/', res.deudor])
+        Swal.fire({
+          icon: res.code == 2 ? 'error' : 'success',
+          title: res.message,
+          allowOutsideClick: false
+        })
+      },
+      error: (e) => {
+        Swal.fire({
+          icon: 'error',
+          title: e.error.message,
+          allowOutsideClick: false
+        })
+      }
     })
   }
 
