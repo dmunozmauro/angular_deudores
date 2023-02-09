@@ -18,13 +18,13 @@ export class NuevaCompraComponent {
   invalido: Boolean = false;
 
   constructor(private api: ApiService, private router: Router, private activatedRoute: ActivatedRoute) {
-    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, 0, false);
+    this.nueva_compra = new Compras(0, "", 0, 0, 0, 0, false);
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
-      if (params?.id) {
-        this.id_compra_editada = params.id;
+      if (params?.idCompra) {
+        this.id_compra_editada = params.idCompra;
 
         this.api.obtenerCompraById(this.id_compra_editada).subscribe({
           next: (data: any) => {
@@ -71,6 +71,10 @@ export class NuevaCompraComponent {
   }
 
   editarCompra() {
+    if (this.nueva_compra.es_servicio) {
+      this.nueva_compra = new Compras(this.nueva_compra.id, this.nueva_compra.producto, this.nueva_compra.valor, 0, 0, 0, this.nueva_compra.es_servicio);
+    }
+
     Swal.fire({
       title: 'Cargando',
       allowOutsideClick: false
@@ -99,6 +103,8 @@ export class NuevaCompraComponent {
 
 
   volver() {
-    this.router.navigate(['/compras'])
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.router.navigate(['/compras-realizadas', params.id]);
+    });
   }
 }
