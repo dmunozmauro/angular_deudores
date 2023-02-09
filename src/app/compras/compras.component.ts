@@ -15,6 +15,8 @@ export class ComprasComponent {
   constructor(private api: ApiService, private router: Router) { }
 
   compras: Compras[] = []
+  suma_productos: Number = 0;
+  suma_cuotas: Number = 0;
 
   ngOnInit(): void {
     Swal.fire({
@@ -27,6 +29,11 @@ export class ComprasComponent {
     this.api.obtenerCompras().subscribe({
       next: (data: any) => {
         this.compras = data.data
+        this.compras.map((c: any) => {
+          this.suma_productos = Number(this.suma_productos) + Number(c.valor);
+          this.suma_cuotas = Number(this.suma_cuotas) + Number(c.valor_cuota);
+        })
+
         Swal.close();
       },
       error: (e) => {

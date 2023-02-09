@@ -21,8 +21,8 @@
                     <th scope="col">N°</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Valor producto</th>
-                    <th scope="col">Cantidad cuotas</th>
                     <th scope="col">Cuotas pagadas</th>
+                    <th scope="col">Cantidad cuotas</th>
                     <th scope="col">Valor cuota</th>
                     <th scope="col">Eliminar</th>
                 </tr>
@@ -33,15 +33,19 @@
                     <td>{{compra.producto}}</td>
                     <td>$ {{compra.valor.toString() | number}}</td>
 
-                    <td *ngIf="compra.cantidad_cuotas">{{compra.cantidad_cuotas}}</td>
-                    <td *ngIf="!compra.cantidad_cuotas">-</td>
-
                     <td *ngIf="compra.cuotas_pagadas">{{compra.cuotas_pagadas}}</td>
                     <td *ngIf="!compra.cuotas_pagadas">-</td>
+
+                    <td *ngIf="compra.cantidad_cuotas">{{compra.cantidad_cuotas}}</td>
+                    <td *ngIf="!compra.cantidad_cuotas">-</td>
 
                     <td>$ {{compra.valor_cuota.toString() | number}}</td>
 
                     <td><mat-icon class="icons" (click)="eliminarCompra(compra.id)">delete</mat-icon>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-end"><strong>Total productos: $ {{suma_productos.toString() | number}}</strong></td>
+                    <td colspan="4" class="text-end"><strong>Total cuotas: $ {{suma_cuotas.toString() | number}}</strong></td>
                 </tr>
             </tbody>
         </table>
