@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-12">
-        <p>Suma total cuotas: <strong>{{suma_total_cuotas.toString() | number}}</strong></p>
+        <p>Suma total cuotas: <strong>{{suma_total_cuotas.toString() | numeros}}</strong></p>
     </div>
 
     <div class="col-12" *ngIf="compras_realizadas.length > 0; else no_compras">
@@ -34,7 +34,7 @@
                 <tr *ngFor="let compra of compras_realizadas; let i = index">
                     <td>{{i + 1}}</td>
                     <td>{{compra.producto}}</td>
-                    <td>{{compra.valor.toString() | number}}</td>
+                    <td>{{compra.valor.toString() | numeros}}</td>
 
                     <td *ngIf="compra.cantidad_cuotas">{{compra.cantidad_cuotas}}</td>
                     <td *ngIf="!compra.cantidad_cuotas">-</td>
@@ -42,7 +42,7 @@
                     <td *ngIf="compra.cantidad_cuotas">{{compra.cuotas_pagadas}}</td>
                     <td *ngIf="!compra.cantidad_cuotas">-</td>
 
-                    <td>{{compra.valor_cuota.toString() | number}}</td>
+                    <td>{{compra.valor_cuota.toString() | numeros}}</td>
 
                     <td *ngIf="compra.ultima_fecha_pago">{{compra.ultima_fecha_pago}}</td>
                     <td *ngIf="!compra.ultima_fecha_pago">Sin pago registrado</td>

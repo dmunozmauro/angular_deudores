@@ -20,6 +20,7 @@ import { VerComprasRealizadasComponent } from './ver-compras-realizadas/ver-comp
 import { MisComprasComponent } from './mis-compras/mis-compras.component';
 import { ComprasDeudoresComponent } from './compras-deudores/compras-deudores.component';
 import { DeudasComponent } from './deudas/deudas.component';
+import { NumerosPipe } from './numeros.pipe';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { DeudasComponent } from './deudas/deudas.component';
     MisComprasComponent,
     ComprasDeudoresComponent,
     DeudasComponent,
+    NumerosPipe,
   ],
   imports: [
     BrowserModule,

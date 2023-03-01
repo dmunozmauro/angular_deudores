@@ -34,10 +34,10 @@
                         <tbody>
                             <tr *ngFor="let d of c.deudas">
                                 <td>{{d.producto}}</td>
-                                <td>{{d.valor.toString() | number}}</td>
+                                <td>$ {{d.valor.toString() | numeros}}</td>
                                 <td *ngIf="d.cantidad_cuotas">{{d.cuotas_pagadas}} de {{d.cantidad_cuotas}}</td>
                                 <td *ngIf="!d.cantidad_cuotas">-</td>
-                                <td>{{d.valor_cuota.toString() | number}}</td>
+                                <td>$ {{d.valor_cuota.toString() | numeros}}</td>
                             </tr>
                         </tbody>
                     </table>

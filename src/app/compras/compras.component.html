@@ -31,7 +31,7 @@
                 <tr *ngFor="let compra of compras; let i = index">
                     <td>{{i + 1}}</td>
                     <td>{{compra.producto}}</td>
-                    <td>$ {{compra.valor.toString() | number}}</td>
+                    <td>$ {{compra.valor.toString() | numeros}}</td>
 
                     <td *ngIf="compra.cuotas_pagadas">{{compra.cuotas_pagadas}}</td>
                     <td *ngIf="!compra.cuotas_pagadas">-</td>
@@ -39,13 +39,13 @@
                     <td *ngIf="compra.cantidad_cuotas">{{compra.cantidad_cuotas}}</td>
                     <td *ngIf="!compra.cantidad_cuotas">-</td>
 
-                    <td>$ {{compra.valor_cuota.toString() | number}}</td>
+                    <td>$ {{compra.valor_cuota.toString() | numeros}}</td>
 
                     <td><mat-icon class="icons" (click)="eliminarCompra(compra.id)">delete</mat-icon>
                 </tr>
                 <tr>
-                    <td colspan="3" class="text-end"><strong>Total productos: $ {{suma_productos.toString() | number}}</strong></td>
-                    <td colspan="4" class="text-end"><strong>Total cuotas: $ {{suma_cuotas.toString() | number}}</strong></td>
+                    <td colspan="3" class="text-end"><strong>Total productos: $ {{suma_productos.toString() | numeros}}</strong></td>
+                    <td colspan="4" class="text-end"><strong>Total cuotas: $ {{suma_cuotas.toString() | numeros}}</strong></td>
                 </tr>
             </tbody>
         </table>
