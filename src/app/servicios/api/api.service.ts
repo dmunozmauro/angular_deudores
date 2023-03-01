@@ -48,7 +48,7 @@ export class ApiService {
     let direccion = this.url + "compras/insertar-compras";
     return this.http.post<Compras>(direccion, compra)
   }
-  
+
   editarCompra(compra: Compras): Observable<Compras> {
     let direccion = this.url + "compras/editar-compras";
     return this.http.put<Compras>(direccion, compra)
@@ -58,7 +58,7 @@ export class ApiService {
     let direccion = this.url + "deudores/actualizar-relacion-deudor-compra";
     return this.http.put<[]>(direccion, compra)
   }
-  
+
   actualizarFechaPago(body: any): Observable<[]> {
     let direccion = this.url + "compras/actualizar-fecha-pago";
     return this.http.put<[]>(direccion, body)
@@ -76,7 +76,7 @@ export class ApiService {
 
     return this.http.delete<Deudor>(direccion, options)
   }
-  
+
   eliminarCompra(id: Number): Observable<Compras> {
     let direccion = this.url + "compras/eliminar-compras";
     let options = {
@@ -101,5 +101,13 @@ export class ApiService {
     }
 
     return this.http.delete<Compras>(direccion, options)
+  }
+
+
+  // MIS COMPRAS REALIZADAS
+
+  obtenerMisCompras(): Observable<[]> {
+    let direccion = this.url + "mis-compras/obtener-compras"
+    return this.http.get<[]>(direccion)
   }
 }
