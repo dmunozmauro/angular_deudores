@@ -105,6 +105,10 @@ export class ApiService {
 
 
   // MIS COMPRAS REALIZADAS
+  obtenerSituacionFinanciera(): Observable<[]> {
+    let direccion = this.url + "situacion-financiera/obtener-informacion"
+    return this.http.get<[]>(direccion)
+  }
 
   obtenerMisCompras(): Observable<[]> {
     let direccion = this.url + "mis-compras/obtener-compras"

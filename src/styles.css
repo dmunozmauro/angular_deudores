@@ -22,8 +22,21 @@ body {
 .border-table-deudas {
     border: 1px solid gray;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .strong-totales {
     font-weight: bold;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
 }

@@ -5,7 +5,6 @@
 
     <div class="row mt-3">
         <div class="col-6">
-            <!-- <button type="button" class="btn btn-primary" (click)="nuevaCompra()">Nueva compra</button> -->
         </div>
         <div class="col-6 text-end">
             <button class="btn btn-secondary" (click)="volver()">Volver</button>
@@ -13,7 +12,60 @@
     </div>
 </div>
 
+
 <div class="row mt-3">
+
+    <div class="col-4 mt-4">
+        <div class="border-table-deudas">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table text-center">
+                        <tbody>
+                            <tr *ngFor="let s of sumas_instituciones">
+                                <td>{{s.institucion}}</td>
+                                <td>$ {{s.total | numeros}}</td>
+                            </tr>
+
+                            <tr class="strong-totales red">
+                                <td>TOTAL</td>
+                                <td>$ {{suma_total | numeros}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-table-deudas">
+            <div class="row">
+                <div class="col-12">
+                    <table class="table text-center">
+                        <tbody>
+                            <tr class="strong-totales blue">
+                                <td>SUELDO</td>
+                                <td>$ {{sueldo | numeros}}</td>
+                            </tr>
+
+                            <tr class="strong-totales blue">
+                                <td>RESTANTE MES</td>
+                                <td>$ {{restante_mes | numeros}}</td>
+                            </tr>
+
+                            <tr class="strong-totales red">
+                                <td>TOTAL DEUDAS</td>
+                                <td>$ {{suma_total | numeros}}</td>
+                            </tr>
+
+                            <tr class="strong-totales green">
+                                <td>DIFERENCIAS</td>
+                                <td>$ {{diferencia | numeros}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="col-4 mt-4" *ngFor="let c of compras">
         <div class="border-table-deudas" *ngIf="c.deudas.length > 0">
@@ -42,7 +94,7 @@
 
                             <tr class="strong-totales">
                                 <td colspan="2">TOTAL</td>
-                                <td colspan="2">{{c.deuda_total | numeros}}</td>
+                                <td colspan="2">$ {{c.deuda_total | numeros}}</td>
                             </tr>
                         </tbody>
                     </table>
