@@ -93,7 +93,7 @@ export class DeudoresComponent {
   }
 
   volver() {
-    this.router.navigate(['/menu'])
+    this.router.navigate(['/compras-deudores'])
   }
 
 }

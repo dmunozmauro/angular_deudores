@@ -10,8 +10,12 @@ export class MenuComponent {
 
   constructor(private router: Router) { }
 
+  personales() {
+    this.router.navigate(['/mis-compras'])
+  }
+  
   deudores() {
-    this.router.navigate(['/deudores'])
+    this.router.navigate(['/compras-deudores'])
   }
 
   compras() {

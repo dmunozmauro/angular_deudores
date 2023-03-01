@@ -17,6 +17,9 @@ import { ComprasComponent } from './compras/compras.component';
 import { NuevaCompraComponent } from './nueva-compra/nueva-compra.component';
 import { AsociarDeudorComprasComponent } from './asociar-deudor-compras/asociar-deudor-compras.component';
 import { VerComprasRealizadasComponent } from './ver-compras-realizadas/ver-compras-realizadas.component';
+import { MisComprasComponent } from './mis-compras/mis-compras.component';
+import { ComprasDeudoresComponent } from './compras-deudores/compras-deudores.component';
+import { DeudasComponent } from './deudas/deudas.component';
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import { VerComprasRealizadasComponent } from './ver-compras-realizadas/ver-comp
     NuevaCompraComponent,
     AsociarDeudorComprasComponent,
     VerComprasRealizadasComponent,
+    MisComprasComponent,
+    ComprasDeudoresComponent,
+    DeudasComponent,
   ],
   imports: [
     BrowserModule,

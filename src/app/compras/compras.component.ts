@@ -91,7 +91,7 @@ export class ComprasComponent {
   }
 
   volver() {
-    this.router.navigate(['/menu'])
+    this.router.navigate(['/compras-deudores'])
   }
 
 }

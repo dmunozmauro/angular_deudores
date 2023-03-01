@@ -18,3 +18,8 @@ body {
 .icons:hover {
     color: orange;
 }
+
+.border-table-deudas {
+    border: 1px solid gray;
+    padding: 10px;
+}
