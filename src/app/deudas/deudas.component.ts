@@ -41,6 +41,7 @@ export class DeudasComponent {
             "total": c.deuda_total
           })
 
+          
           this.suma_total = this.suma_total + Number.parseInt(c.deuda_total)
         })
 
